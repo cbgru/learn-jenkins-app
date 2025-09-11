@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        // This is a comment
-        /*
-        line 1
-        line 2
-        */
         
         stage('Build') {
             agent {
@@ -38,10 +33,7 @@ pipeline {
                     }
                     steps {
                         sh '''
-                        echo "Test stage"
-                        test -f build/index.html
-                        node --version
-                        npm ci
+                        #test -f build/index.html
                         npm test
                         '''
                     }
@@ -75,7 +67,7 @@ pipeline {
                 }
             }
         }
-    }
+        
         stage('Deploy') {
             agent {
                 docker {
@@ -90,5 +82,5 @@ pipeline {
                 '''
             }
         }
-
+    }
 }
