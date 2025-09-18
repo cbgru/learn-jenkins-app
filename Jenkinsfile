@@ -91,7 +91,9 @@ pipeline {
                 '''
             }
         }
-        
+        stage ('Approval'){
+            echo "this is the approval stage"
+        }
         stage('Deploy prod') {
             agent {
                 docker {
