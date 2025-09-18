@@ -92,7 +92,7 @@ pipeline {
             }
         }
         stage ('Approval'){
-            echo "this is the approval stage"
+            input message: 'Do you wish to deploy to production?', ok: 'Yes, I am sure!'
         }
         stage('Deploy prod') {
             agent {
