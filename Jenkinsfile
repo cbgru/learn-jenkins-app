@@ -75,22 +75,6 @@ pipeline {
             }
         }
         
-        stage('Deploy staging') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
-            steps {
-                sh '''
-                    
-                '''
-                script {
-                    env.STAGING_URL = sh(script: "", returnStdout: true)
-                }
-            }
-        }
 
        stage('Deploy staging') {
             agent {
